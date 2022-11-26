@@ -1,0 +1,22 @@
+{% extends 'core/home.html' %}
+
+{% block content %}
+
+<div class="messages">
+    {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text", name="username", placeholder="Username" class="form-control">
+    <br>
+    <input type="password", name="password", placeholder="Password", class="form-control">
+    <br>
+    <input type="submit", value="Enter", class="btn btn-success">
+</form>
+
+{% endblock content %}
